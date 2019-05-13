@@ -10,12 +10,12 @@ exports.number = (val) => {
     int = arr.join('');
     console.log(`arr: ${arr}`);
     console.log(`int: ${int}`);
-    return int;
+    return int
 };
 
 exports.result = () => {
     return eval(int)
-}
+};
 
 exports.clear = () => {
     arr = [];
@@ -26,4 +26,4 @@ exports.clear = () => {
 exports.operators = (op) => {
     arr.push(op);
     return int + op
-}
+};
