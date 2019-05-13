@@ -13,8 +13,17 @@ exports.number = (val) => {
     return int;
 };
 
+exports.result = () => {
+    return eval(int)
+}
+
 exports.clear = () => {
     arr = [];
     int = 0;
     console.log(`Cleared. \n arr=${arr} \n int=${int}`);
 };
+
+exports.operators = (op) => {
+    arr.push(op);
+    return int + op
+}

@@ -23,8 +23,9 @@
     <!-- Display -->
     <div class="w3-container w3-flat-wet-asphalt w3-padding w3-margin-bottom" id="mainDisplay">
       <i onclick="sidebar_open()" class="fa fa-bars w3-xlarge w3-button"></i> 
-      <div class="w3-center">
-        <h1 class="w3-xxxlarge w3-right-align" id="display"></h1>
+      <div class="w3-right-align">
+        <h4 class="w3-large" id="history">0</h4>
+        <h1 class="w3-xxxlarge" id="display">0</h1>
       </div>
     </div>
 
@@ -35,25 +36,25 @@
         <button class="w3-button w3-flat-silver">CE</button>
         <button class="w3-button w3-flat-silver" onclick="clear_number()">C</button>
         <button class="w3-button w3-flat-silver"><i class="far fa-caret-square-left"></i></button>
-        <button class="w3-button w3-flat-silver"><i class="fas fa-divide"></i></button>
+        <button class="w3-button w3-flat-silver" onclick="operator('/')"><i class="fas fa-divide"></i></button>
       </div>
       <div class="w3-bar">
         <button class="w3-button w3-flat-silver" onclick="insert_number(7)">7</button>
         <button class="w3-button w3-flat-silver" onclick="insert_number(8)">8</button>
         <button class="w3-button w3-flat-silver" onclick="insert_number(9)">9</button>
-        <button class="w3-button w3-flat-silver"><i class="fas fa-times"></i></button>
+        <button class="w3-button w3-flat-silver" onclick="operator('*')"><i class="fas fa-times"></i></button>
       </div>
       <div class="w3-bar">
         <button class="w3-button w3-flat-silver" onclick="insert_number(4)">4</button>
         <button class="w3-button w3-flat-silver" onclick="insert_number(5)">5</button>
         <button class="w3-button w3-flat-silver" onclick="insert_number(6)">6</button>
-        <button class="w3-button w3-flat-silver"><i class="fas fa-minus"></i></button>
+        <button class="w3-button w3-flat-silver" onclick="operator('-')"><i class="fas fa-minus"></i></button>
       </div>
       <div class="w3-bar">
         <button class="w3-button w3-flat-silver" onclick="insert_number(1)">1</button>
         <button class="w3-button w3-flat-silver" onclick="insert_number(2)">2</button>
         <button class="w3-button w3-flat-silver" onclick="insert_number(3)">3</button>
-        <button class="w3-button w3-flat-silver"><i class="fas fa-plus"></i></button>
+        <button class="w3-button w3-flat-silver" onclick="operator('+')"><i class="fas fa-plus"></i></button>
       </div>
       <div class="w3-bar">
         <button class="w3-button w3-flat-silver"><i class="fas fa-infinity"></i></button>
@@ -69,17 +70,25 @@
       const renderer = require('./renderer.js');
       // gather element IDs
       const sidebar = document.getElementById("sidebar");
+      const history = document.getElementById("history");
       const display = document.getElementById("display");
 
       function insert_number(val) {
         // Display data on display
-        display.innerHTML = renderer.number(val);
+        history.innerHTML = renderer.number(val);
+        display.innerHTML = renderer.result();
       }
 
       function clear_number() {
         renderer.clear();
         display.innerHTML.trim();
+        history.innerHTML.trim();
         display.innerHTML = 0;
+        history.innerHTML = 0;
+      }
+
+      function operator(op) {
+        history.innerHTML = renderer.operators(op);
       }
 
       // Open Sidebar
