@@ -1,19 +1,99 @@
 <!DOCTYPE html>
 <html>
+
   <head>
     <meta charset="UTF-8">
-    <title>Hello World!</title>
+    <title>Calc</title>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-colors-flat.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
   </head>
+
   <body>
-    <h1>Hello World!</h1>
-    <!-- All of the Node.js APIs are available in this renderer process. -->
-    We are using Node.js <script>document.write(process.versions.node)</script>,
-    Chromium <script>document.write(process.versions.chrome)</script>,
-    and Electron <script>document.write(process.versions.electron)</script>.
+    
+    <!-- Side Navigation -->
+    <nav class="w3-sidebar w3-bar-block w3-card w3-animate-left w3-center" style="display:none" id="sidebar">
+      <button class="w3-button" onclick="sidebar_close()"><i class="fas fa-times-circle"></i></i></button>
+      <a href="#" class="w3-bar-item w3-button">Link 1</a>
+      <a href="#" class="w3-bar-item w3-button">Link 2</a>
+      <a href="#" class="w3-bar-item w3-button">Link 3</a>
+      <a href="#" class="w3-bar-item w3-button">Link 4</a>
+    </nav>
+
+    <!-- Display -->
+    <div class="w3-container w3-flat-wet-asphalt w3-padding w3-margin-bottom" id="mainDisplay">
+      <i onclick="sidebar_open()" class="fa fa-bars w3-xlarge w3-button"></i> 
+      <div class="w3-center">
+        <h1 class="w3-xxxlarge w3-right-align" id="display"></h1>
+      </div>
+    </div>
+
+    <!-- NumberPad -->
+    <div class="w3-container" id="buttonPanel">
+      <!-- Make rows of buttons -->
+      <div class="w3-bar">
+        <button class="w3-button w3-flat-silver">CE</button>
+        <button class="w3-button w3-flat-silver" onclick="clear_number()">C</button>
+        <button class="w3-button w3-flat-silver"><i class="far fa-caret-square-left"></i></button>
+        <button class="w3-button w3-flat-silver"><i class="fas fa-divide"></i></button>
+      </div>
+      <div class="w3-bar">
+        <button class="w3-button w3-flat-silver" onclick="insert_number(7)">7</button>
+        <button class="w3-button w3-flat-silver" onclick="insert_number(8)">8</button>
+        <button class="w3-button w3-flat-silver" onclick="insert_number(9)">9</button>
+        <button class="w3-button w3-flat-silver"><i class="fas fa-times"></i></button>
+      </div>
+      <div class="w3-bar">
+        <button class="w3-button w3-flat-silver" onclick="insert_number(4)">4</button>
+        <button class="w3-button w3-flat-silver" onclick="insert_number(5)">5</button>
+        <button class="w3-button w3-flat-silver" onclick="insert_number(6)">6</button>
+        <button class="w3-button w3-flat-silver"><i class="fas fa-minus"></i></button>
+      </div>
+      <div class="w3-bar">
+        <button class="w3-button w3-flat-silver" onclick="insert_number(1)">1</button>
+        <button class="w3-button w3-flat-silver" onclick="insert_number(2)">2</button>
+        <button class="w3-button w3-flat-silver" onclick="insert_number(3)">3</button>
+        <button class="w3-button w3-flat-silver"><i class="fas fa-plus"></i></button>
+      </div>
+      <div class="w3-bar">
+        <button class="w3-button w3-flat-silver"><i class="fas fa-infinity"></i></button>
+        <button class="w3-button w3-flat-silver" onclick="insert_number(0)">0</button>
+        <button class="w3-button w3-flat-silver">.</button>
+        <button class="w3-button w3-flat-silver"><i class="fas fa-equals"></i></button>
+      </div>
+    </div>
 
     <script>
-      // You can also require other files to run in this process
-      require('./renderer.js')
+
+      // include renderer
+      const renderer = require('./renderer.js');
+      // gather element IDs
+      const sidebar = document.getElementById("sidebar");
+      const display = document.getElementById("display");
+
+      function insert_number(val) {
+        // Display data on display
+        display.innerHTML = renderer.number(val);
+      }
+
+      function clear_number() {
+        renderer.clear();
+        display.innerHTML.trim();
+        display.innerHTML = 0;
+      }
+
+      // Open Sidebar
+      function sidebar_open() {
+        sidebar.style.width = "40%";
+        sidebar.style.fontSize = "40px";
+        sidebar.style.paddingTop = "10%";
+        sidebar.style.display = "block";
+      }
+      // Close Sidebar
+      function sidebar_close() {
+        sidebar.style.display = "none";
+      }
+
     </script>
   </body>
 </html>
