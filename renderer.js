@@ -8,8 +8,6 @@ let int;
 exports.number = (val) => {
     arr.push(val);
     int = arr.join('');
-    console.log(`arr: ${arr}`);
-    console.log(`int: ${int}`);
     return int
 };
 
@@ -20,7 +18,6 @@ exports.result = () => {
 exports.clear = () => {
     arr = [];
     int = 0;
-    console.log(`Cleared. \n arr=${arr} \n int=${int}`);
 };
 
 exports.operators = (op) => {
