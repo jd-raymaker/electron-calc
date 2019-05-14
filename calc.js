@@ -13,11 +13,8 @@ function insert_number(val) {
 }
 
 function clear_number() {
-  renderer.clear();
-  display.innerHTML.trim();
-  history.innerHTML.trim();
-  display.innerHTML = 0;
-  history.innerHTML = 0;
+  history.innerHTML = renderer.clear();
+  display.innerHTML = renderer.clear();
 }
 
 function operator(op) {

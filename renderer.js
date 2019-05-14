@@ -16,6 +16,7 @@ exports.result = () => { return eval(num) };
 exports.clear = () => {
     arr = [];
     num = 0;
+    return num
 };
 
 exports.operators = (op) => {
