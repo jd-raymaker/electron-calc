@@ -21,6 +21,16 @@ exports.clear = () => {
 };
 
 exports.operators = (op) => {
-    arr.push(op);
+
+    let last = arr[arr.length -1]; // get the last item in array
+    // prevent the user for entering more operators at once
+    // is the last item in the array a number?
+    if (isNaN(last)) {
+        arr.pop(); // not a number.. remove it
+    }
+ 
+    arr.push(op); // push the newest operator to the array
+
     return num + op
+
 };
