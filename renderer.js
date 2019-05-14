@@ -11,9 +11,7 @@ exports.number = (val) => {
     return num
 };
 
-exports.result = () => {
-    return eval(num)
-};
+exports.result = () => { return eval(num) };
 
 exports.clear = () => {
     arr = [];
