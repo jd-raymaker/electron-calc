@@ -20,7 +20,6 @@
     "electron": "^5.0.0"
   },
   "dependencies": {
-    "hotkeys-js": "^3.6.8",
-    "keypress": "^0.2.1"
+    "hotkeys-js": "^3.6.8"
   }
 }
