@@ -35,36 +35,40 @@
       <div class="w3-bar">
         <button class="w3-button w3-flat-silver">CE</button>
         <button class="w3-button w3-flat-silver" onclick="clear_number()">C</button>
-        <button class="w3-button w3-flat-silver"><i class="far fa-caret-square-left"></i></button>
+        <button class="w3-button w3-flat-silver" onclick="push_number(-1)"><i class="far fa-caret-square-left"></i></button>
         <button class="w3-button w3-flat-silver" onclick="operator('/')"><i class="fas fa-divide"></i></button>
       </div>
       <div class="w3-bar">
-        <button class="w3-button w3-flat-silver" onclick="insert_number(7)">7</button>
-        <button class="w3-button w3-flat-silver" onclick="insert_number(8)">8</button>
-        <button class="w3-button w3-flat-silver" onclick="insert_number(9)">9</button>
+        <button class="w3-button w3-flat-silver" onclick="push_number(7)">7</button>
+        <button class="w3-button w3-flat-silver" onclick="push_number(8)">8</button>
+        <button class="w3-button w3-flat-silver" onclick="push_number(9)">9</button>
         <button class="w3-button w3-flat-silver" onclick="operator('*')"><i class="fas fa-times"></i></button>
       </div>
       <div class="w3-bar">
-        <button class="w3-button w3-flat-silver" onclick="insert_number(4)">4</button>
-        <button class="w3-button w3-flat-silver" onclick="insert_number(5)">5</button>
-        <button class="w3-button w3-flat-silver" onclick="insert_number(6)">6</button>
+        <button class="w3-button w3-flat-silver" onclick="push_number(4)">4</button>
+        <button class="w3-button w3-flat-silver" onclick="push_number(5)">5</button>
+        <button class="w3-button w3-flat-silver" onclick="push_number(6)">6</button>
         <button class="w3-button w3-flat-silver" onclick="operator('-')"><i class="fas fa-minus"></i></button>
       </div>
       <div class="w3-bar">
-        <button class="w3-button w3-flat-silver" onclick="insert_number(1)">1</button>
-        <button class="w3-button w3-flat-silver" onclick="insert_number(2)">2</button>
-        <button class="w3-button w3-flat-silver" onclick="insert_number(3)">3</button>
+        <button class="w3-button w3-flat-silver" onclick="push_number(1)">1</button>
+        <button class="w3-button w3-flat-silver" onclick="push_number(2)">2</button>
+        <button class="w3-button w3-flat-silver" onclick="push_number(3)">3</button>
         <button class="w3-button w3-flat-silver" onclick="operator('+')"><i class="fas fa-plus"></i></button>
       </div>
       <div class="w3-bar">
         <button class="w3-button w3-flat-silver"><i class="fas fa-infinity"></i></button>
-        <button class="w3-button w3-flat-silver" onclick="insert_number(0)">0</button>
+        <button class="w3-button w3-flat-silver" onclick="push_number(0)">0</button>
         <button class="w3-button w3-flat-silver">.</button>
         <button class="w3-button w3-flat-silver"><i class="fas fa-equals"></i></button>
       </div>
     </div>
 
     <script src="./calc.js"></script>
+    
+    <script>
+      require('./renderer.js')
+    </script>
 
   </body>
 </html>

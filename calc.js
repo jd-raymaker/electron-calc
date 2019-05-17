@@ -1,4 +1,4 @@
-const renderer = require('./renderer.js');
+const numbers = require('./numbers.js');
 const hotkeys = require('hotkeys-js');
 
 // gather element IDs
@@ -6,19 +6,19 @@ const sidebar = document.getElementById("sidebar");
 const history = document.getElementById("history");
 const display = document.getElementById("display");
 
-function insert_number(val) {
+function push_number(val) {
   // Display data on display
-  history.innerHTML = renderer.number(val);
-  display.innerHTML = renderer.result();
+  history.innerHTML = numbers.push(val);
+  display.innerHTML = numbers.result();
 }
 
 function clear_number() {
-  history.innerHTML = renderer.clear();
-  display.innerHTML = renderer.clear();
+  history.innerHTML = numbers.clear();
+  display.innerHTML = numbers.clear();
 }
 
 function operator(op) {
-  history.innerHTML = renderer.operators(op);
+  history.innerHTML = numbers.operators(op);
 }
 
 // Open Sidebar
@@ -36,5 +36,5 @@ function sidebar_close() {
 
 // Capture number keys
 hotkeys('1,2,3,4,5,6,7,8,9,0', { keyup: true }, function(evn, handler){
-  if(evn.type === 'keyup') { insert_number(handler.key) }
+  if(evn.type === 'keyup') { push_number(handler.key) }
 });
