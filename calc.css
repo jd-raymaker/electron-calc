@@ -1,3 +1,7 @@
+#buttonPanel {
+    min-width: 512px;
+}
+
 .calcButton {
     text-align: center;
     font-size: 24px;
