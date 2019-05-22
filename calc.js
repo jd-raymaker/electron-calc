@@ -23,8 +23,8 @@ function operator(op) {
 
 // Open Sidebar
 function sidebar_open() {
-  sidebar.style.width = "40%";
-  sidebar.style.fontSize = "40px";
+  sidebar.style.width = "256px";
+  sidebar.style.fontSize = "24px";
   sidebar.style.paddingTop = "10%";
   sidebar.style.display = "block";
 }
